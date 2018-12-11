@@ -14,8 +14,8 @@ namespace WpfTilaukset
        public string Vari { get; set; } //uusi
         public int Maara { get; set; }
         public decimal AHinta { get; set; }
-        public decimal Summa { get; set; } //uusi
-        public decimal RiviSumma()      //uusi
+        public decimal Summa { get; set; } 
+        public decimal RiviSumma()     
         {
             Summa = AHinta * Maara;
             return Summa;

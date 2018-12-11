@@ -127,6 +127,11 @@ namespace WpfTilaukset
             {
                 MessageBox.Show(ex.Message);
             }
+            txtTuoteNumero.Clear();
+            txtTuoteNimi.Clear();
+            txtMaara.Clear();
+            txtAHinta.Clear();
+
         }
     }
 }
