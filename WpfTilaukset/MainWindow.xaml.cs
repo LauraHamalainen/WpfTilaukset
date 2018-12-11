@@ -27,9 +27,12 @@ namespace WpfTilaukset
             InitializeComponent();
             dpTilausPvm.SelectedDate = tänään;
             dpToimitusPvm.SelectedDate = tänään.AddDays(14);
+            cbVari.Items.Add("");
             cbVari.Items.Add("Punainen");
             cbVari.Items.Add("Valkoinen");
             cbVari.Items.Add("Musta");
+            cbVari.SelectedIndex = 0;
+
 
             DataGridTextColumn textColumn1 = new DataGridTextColumn();
             textColumn1.Binding = new Binding("TilausNumero");  //suluissa oleva on oltava sama kuin luokassa määritelty ominaisuus
@@ -38,11 +41,14 @@ namespace WpfTilaukset
             DataGridTextColumn textColumn3 = new DataGridTextColumn();
             textColumn3.Binding = new Binding("TuoteNimi");
             DataGridTextColumn textColumn4 = new DataGridTextColumn();
-            textColumn4.Binding = new Binding("Maara");
+            textColumn4.Binding = new Binding("Vari");
             DataGridTextColumn textColumn5 = new DataGridTextColumn();
-            textColumn5.Binding = new Binding("AHinta");
+            textColumn5.Binding = new Binding("Maara");
             DataGridTextColumn textColumn6 = new DataGridTextColumn();
-            textColumn6.Binding = new Binding("Summa");
+            textColumn6.Binding = new Binding("AHinta");
+            DataGridTextColumn textColumn7 = new DataGridTextColumn();
+            textColumn7.Binding = new Binding("Summa");
+            
 
 
 
@@ -54,12 +60,15 @@ namespace WpfTilaukset
             dgTilausRivit.Columns.Add(textColumn2);
             textColumn3.Header = "Tuotteen nimi";
             dgTilausRivit.Columns.Add(textColumn3);
-            textColumn4.Header = "Määrä";
+            textColumn4.Header = "Väri";
             dgTilausRivit.Columns.Add(textColumn4);
-            textColumn5.Header = "A-hinta";
-            dgTilausRivit.Columns.Add(textColumn5);
-            textColumn6.Header = "RiviSumma";
+            textColumn5.Header = "Määrä";
+             dgTilausRivit.Columns.Add(textColumn5);
+            textColumn6.Header = "A-hinta";
             dgTilausRivit.Columns.Add(textColumn6);
+            textColumn7.Header = "RiviSumma";
+            dgTilausRivit.Columns.Add(textColumn7);
+            
         }
 
         private void btnTallenna_Click(object sender, RoutedEventArgs e)
@@ -105,19 +114,20 @@ namespace WpfTilaukset
                 TilausR.TuoteNimi = txtTuoteNimi.Text;
                 TilausR.Maara = int.Parse(txtMaara.Text);
                 TilausR.AHinta = Convert.ToDecimal(txtAHinta.Text);
-               
+                TilausR.Vari= cbVari.SelectedItem.ToString();
 
 
-               /* MessageBox.Show("Tilausrivi tallennettu: " + "\r\n" + "Tilausnumero: " + TilausR.TilausNumero.ToString() +
-                    "\r\n" + "Tuotenumero: " + TilausR.TilausNumero +
-                    "\r\n" + "TuoteNimi: " + TilausR.TuoteNimi +
-                     "\r\n" + "Määrä: " + TilausR.Maara.ToString()+
-                    "\r\n" + "A Hinta: " + TilausR.AHinta.ToString() +
-                    "\r\n" + "Summa: " + TilausR.RiviSumma.ToString()
+
+                /* MessageBox.Show("Tilausrivi tallennettu: " + "\r\n" + "Tilausnumero: " + TilausR.TilausNumero.ToString() +
+                     "\r\n" + "Tuotenumero: " + TilausR.TilausNumero +
+                     "\r\n" + "TuoteNimi: " + TilausR.TuoteNimi +
+                      "\r\n" + "Määrä: " + TilausR.Maara.ToString()+
+                     "\r\n" + "A Hinta: " + TilausR.AHinta.ToString() +
+                     "\r\n" + "Summa: " + TilausR.RiviSumma.ToString()
 
 
-                    );*/
-               
+                     );*/
+
                 RiviSummaYht += TilausR.RiviSumma();
                 txtSumma.Text = RiviSummaYht.ToString();
                 dgTilausRivit.Items.Add(TilausR);

@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="521.186" Width="1213.559">
     <Grid Margin="0,0,0,-21">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="465" Margin="10,0,0,0" VerticalAlignment="Top" Width="348"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="160" Margin="432,10,0,0" VerticalAlignment="Top" Width="729"/>
         <TextBox x:Name="txtTilausNumero" HorizontalAlignment="Left" Height="36" Margin="35,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontSize="14"/>
         <TextBox x:Name="txtAsiakasNumero" HorizontalAlignment="Left" Height="36" Margin="35,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" FontSize="14"/>
@@ -23,7 +24,6 @@
         <Label x:Name="lblToimitusPvm" Content="Toimituspvm" HorizontalAlignment="Left" Margin="39,353,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtToimitusAika" HorizontalAlignment="Left" Height="36" Margin="223,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99"/>
         <TextBox x:Name="txtSaInt" HorizontalAlignment="Left" Height="30" Margin="223,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="465" Margin="10,10,0,0" VerticalAlignment="Top" Width="348"/>
         <Label x:Name="lblTuoteNumero" Content="Tuotenumero" HorizontalAlignment="Left" Height="26" Margin="456,10,0,0" VerticalAlignment="Top" Width="105" FontSize="14"/>
         <Label x:Name="lblHinta" Content="Hinta" HorizontalAlignment="Left" Height="26" Margin="585,103,0,0" VerticalAlignment="Top" Width="105" FontSize="14"/>
         <Label x:Name="lblTuotteenNimi" Content="Tuotteen nimi" HorizontalAlignment="Left" Height="26" Margin="710,20,0,0" VerticalAlignment="Top" Width="105" FontSize="14"/>
