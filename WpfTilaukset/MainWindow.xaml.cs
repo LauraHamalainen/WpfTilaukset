@@ -21,11 +21,15 @@ namespace WpfTilaukset
     public partial class MainWindow : Window
     {
         DateTime tänään = DateTime.Today;
+        Decimal RiviSummaYht = 0; 
         public MainWindow()
         {
             InitializeComponent();
             dpTilausPvm.SelectedDate = tänään;
             dpToimitusPvm.SelectedDate = tänään.AddDays(14);
+            cbVari.Items.Add("Punainen");
+            cbVari.Items.Add("Valkoinen");
+            cbVari.Items.Add("Musta");
 
             DataGridTextColumn textColumn1 = new DataGridTextColumn();
             textColumn1.Binding = new Binding("TilausNumero");  //suluissa oleva on oltava sama kuin luokassa määritelty ominaisuus
@@ -37,6 +41,12 @@ namespace WpfTilaukset
             textColumn4.Binding = new Binding("Maara");
             DataGridTextColumn textColumn5 = new DataGridTextColumn();
             textColumn5.Binding = new Binding("AHinta");
+            DataGridTextColumn textColumn6 = new DataGridTextColumn();
+            textColumn6.Binding = new Binding("Summa");
+
+
+
+
             //DataGridin otsikot + edellä luotujen sarakkeiden sijoitus
             textColumn1.Header = "Tilauksen numero";
             dgTilausRivit.Columns.Add(textColumn1);
@@ -48,6 +58,8 @@ namespace WpfTilaukset
             dgTilausRivit.Columns.Add(textColumn4);
             textColumn5.Header = "A-hinta";
             dgTilausRivit.Columns.Add(textColumn5);
+            textColumn6.Header = "RiviSumma";
+            dgTilausRivit.Columns.Add(textColumn6);
         }
 
         private void btnTallenna_Click(object sender, RoutedEventArgs e)
@@ -73,6 +85,8 @@ namespace WpfTilaukset
                     "\r\n" + "Toimitusosoite: " + Tilaus.ToimitusOsoite +
                     "\r\n" + "Lkm: " + Tilaus.Lkm.ToString()
                     );
+
+                
             }
             catch (Exception ex)
             {
@@ -94,15 +108,20 @@ namespace WpfTilaukset
                
 
 
-                MessageBox.Show("Tilausrivi tallennettu: " + "\r\n" + "Tilausnumero: " + TilausR.TilausNumero.ToString() +
+               /* MessageBox.Show("Tilausrivi tallennettu: " + "\r\n" + "Tilausnumero: " + TilausR.TilausNumero.ToString() +
                     "\r\n" + "Tuotenumero: " + TilausR.TilausNumero +
                     "\r\n" + "TuoteNimi: " + TilausR.TuoteNimi +
                      "\r\n" + "Määrä: " + TilausR.Maara.ToString()+
-                    "\r\n" + "A Hinta: " + TilausR.AHinta.ToString() 
-                   
-                   
-                    );
+                    "\r\n" + "A Hinta: " + TilausR.AHinta.ToString() +
+                    "\r\n" + "Summa: " + TilausR.RiviSumma.ToString()
+
+
+                    );*/
+               
+                RiviSummaYht += TilausR.RiviSumma();
+                txtSumma.Text = RiviSummaYht.ToString();
                 dgTilausRivit.Items.Add(TilausR);
+
             }
             catch (Exception ex)
             {

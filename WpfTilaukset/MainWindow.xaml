@@ -34,6 +34,9 @@
         <TextBox x:Name="txtTuoteNumero" HorizontalAlignment="Left" Height="46" Margin="456,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210"/>
         <Button x:Name="btnLisaaRivi" Content="Lisää rivi" HorizontalAlignment="Left" Height="57" Margin="954,103,0,0" VerticalAlignment="Top" Width="153" FontSize="16" Click="BtnLisaaRivi_Click"/>
         <DataGrid x:Name="dgTilausRivit" HorizontalAlignment="Left" Height="270" Margin="432,205,0,0" VerticalAlignment="Top" Width="729"/>
+        <TextBox x:Name="txtSumma" HorizontalAlignment="Left" Height="31" Margin="695,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="lblSumma" Content="Summa" HorizontalAlignment="Left" Height="26" Margin="695,98,0,0" VerticalAlignment="Top" Width="105" FontSize="14"/>
+        <ComboBox x:Name="cbVari" HorizontalAlignment="Left" Height="36" Margin="984,38,0,0" VerticalAlignment="Top" Width="123"/>
 
     </Grid>
 </Window>
